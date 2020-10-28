@@ -14,4 +14,12 @@ Two most popular ensemble methods are bagging and boosting.
 
 **Boosting**: Training a bunch of individual models in a sequential way. Each individual model learns from mistakes made by the previous model.
 
-one decision tree
+one decision tree :prone to overfitting
+
+Many descision tree :More stable better generalisation
+
+The random variation during tree bulding happens in two ways 
+
+1.The data used to bulid each tree selected randomly
+
+2.feature chosen in each split test are also randomly selected
