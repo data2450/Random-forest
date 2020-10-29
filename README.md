@@ -31,11 +31,33 @@ The random variation during tree bulding happens in two ways
 
 2.feature chosen in each split test are also randomly selected
 
-# create random forest model
+# create random forest model(bagging)
 first we decide on how many trees to bulid .This is set using the "n_estimated" parameter both(random forest classification,random forest regression)
 
 **each tree would bulid from different sample of the data called bootstrap sample**
 
-Bootstrap sampling:if ure training set has N instances or N n.o of 
+Bootstrap sampling:if ure training set has N instances or samples in total ,a bootstrap sample of size N is created by just repetadely picking on of the N dataset rows at random with replacment , that allowing for the possiblity of picking the same row again at each selection
+
+u repeat this random selection process N times.This resulting bootstrap sample has N rows just like the original training set but with possibly some rows from the original dataset missing and other occuring multiple times just due to nature of the random selection with replacment.
+
+bulding a decision tree for a random forest ,the process is almost the same as for the standard decision tree but with one important difference
+
+when picking the best split for a node instead of finding the best split across all possible features , a random subset of features is chosen and the best split is found within the smaller subset of features
+
+The n.o of features in the subset that are randomly  considered at each stage is controlled by the **max_feature** parameter 
+
+this randomess in selecting the bootstrap sample to train in a forest ensemble ,combined with the fact that splitting a node in the tree is restricted to random subsets of the features of the split,virtually guarantess that all of the decision trees and the random forest will be different 
+
+forest model is sensitive to max_features if it is one ,the model is limited to performing a split on the single feature that was selected randomly ,instead of being able to take the best split over several variables
+
+trees in forest will be very different from each other and possibly will with many levels in order to produce agood fit to the data
+
+if max_feature is close to total n.o of features that each instance has ,trees in the forest will tend to be similar and probably will require fewer lvelsto fit the data using the most informative features 
+
+# prediction
+once the random forest is trained ,it predicts the target value for new instance by the first making a prediction for every random forest .for regression tasks the overall prediction is then typically the mean of the individual tree predictions 
+
+for **classification** the overall prediction is based on the weighted vote .Each tree give gives a probablity for each target classes label then probablities for each class are averaged across all the trees and the class with the highest probablity is the final predicted class.
+
 
 
