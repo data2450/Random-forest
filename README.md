@@ -59,5 +59,17 @@ once the random forest is trained ,it predicts the target value for new instance
 
 for **classification** the overall prediction is based on the weighted vote .Each tree give gives a probablity for each target classes label then probablities for each class are averaged across all the trees and the class with the highest probablity is the final predicted class.
 
+# key parameters
+**n_estimators**:n.o of trees to use in ensample(default:1),-should be larger for larger dataset to reduce overfitting(but use more computation)
+
+**max_features**:has a strong effect on performance.Influence the diversity of trees in the forest. -default works well in practice ,but adjusting may lead to some further gains
+
+**max_depth**:controls the depth of each tree (default:none split until all leaves are pure)
+
+**n_jobs**:How many cores to use in parllel clustring training
+
+choose a fixed settings for random_state parameter if u need reprodusable result
+
+
 
 
