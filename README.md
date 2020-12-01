@@ -70,7 +70,7 @@ for **classification** the overall prediction is based on the weighted vote .Eac
 
 choose a fixed settings for random_state parameter if u need reprodusable result
 
-
+ # others
 **bias**:our model will learn by training dataset ,when we introduce with testing or validation data to the model there may create a difference in predicted values and true values
 
 **"bias is the difference between the predicted value and the expected value".**
