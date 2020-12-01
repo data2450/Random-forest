@@ -95,7 +95,7 @@ bagging standes for Bootstrap Aggregating or simply Bootstrapping + Aggregating.
 
 **bootstrapping**:in bagging refers to a technique where multiple subsets are divided from the whole(set) using replacment procedure 
 
-**aggredating**:combines all possible outcomes of the prediction and randomizes the outcome
+**aggregating**:combines all possible outcomes of the prediction and randomizes the outcome
 
 hence many weak models are combined to form a better model
 
@@ -104,5 +104,14 @@ bagging is a parallel ensemble method,where every weak models is constructed inp
 baggibg is used when the aim is to reduce variance
 
 # how is bagging performed
+The whole process of bagging is explained in just a few steps.please refer the digram
 
+1)'n' n.o of multiple data subset(d1,d2,d3...dn) are generated randomly with replacement from the original dataset 'D'
+**bootstrapping**
+
+2)now these multiple sub-datasets are used to train multiple models (which are called 'weak learners' like m1,m2,m3...mn
+
+3)Final prediction (ensemble method) is givien based on the aggregation of predictions from all weak models, **Aggregating**
+
+* **in case of regressor**:
 
