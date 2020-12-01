@@ -71,5 +71,38 @@ for **classification** the overall prediction is based on the weighted vote .Eac
 choose a fixed settings for random_state parameter if u need reprodusable result
 
 
+**bias**:our model will learn by training dataset ,when we introduce with testing or validation data to the model there may create a difference in predicted values and true values
+
+**"bias is the difference between the predicted value and the expected value".**
+
+when there is a high bias error ,it results in a model that is not capable of taking so much variation.since it does not learn enough from training data,it is called **underfitting**
+
+**variance**:is the error that occurs when the model captures flutuations or noise of the data,the model sholud be able to learn the general trend .not the local changes
+the model learns too much from the training data,so when it is introducede with new testing data,it is unable to predict the results accuretly
+
+
+high variance our model is overfitting
+
+# ensemble methods
+Ensemble method create multiple models (called base learners/weaklearners)  and combine/aggregates them into a final predictive model to decreases erros (variance and bias) 
+
+**parallel ensemble method**:in this method base learners are generated parallely,hence encourge independence between the base learners.Due to the application of averages.the oveall error is reduced
+
+**sequential ensemble methods**:in this method base learners are generated sequence try,hence base leaners are dependent on each other.overall performance of the model ids the increased by allocating higher weights to previously mislabeled/mispredicted learners.
+
+# bagging
+bagging standes for Bootstrap Aggregating or simply Bootstrapping + Aggregating.
+
+**bootstrapping**:in bagging refers to a technique where multiple subsets are divided from the whole(set) using replacment procedure 
+
+**aggredating**:combines all possible outcomes of the prediction and randomizes the outcome
+
+hence many weak models are combined to form a better model
+
+bagging is a parallel ensemble method,where every weak models is constructed inpependently .
+
+baggibg is used when the aim is to reduce variance
+
+# how is bagging performed
 
 
