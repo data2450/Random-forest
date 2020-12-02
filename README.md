@@ -113,5 +113,76 @@ The whole process of bagging is explained in just a few steps.please refer the d
 
 3)Final prediction (ensemble method) is givien based on the aggregation of predictions from all weak models, **Aggregating**
 
-* **in case of regressor**:
+* **in case of regressor**:the average /mean of these is considered as the final prediction
 
+* **classifier**:majority vote gained from voting mechanism is considered as the final prediction
+
+as "random sampling with rwplacement" is used here therefore every element has the same probablity to appear in a newtraining sub-dataset and also some observations may be repeated.Ensemble model produced with weak models is much robust and with low variance
+
+eg:random forest algorithm uses the concept of bagging
+
+# boosting
+bossting is a sequential ensemble method,where each consecutive model atempt to correct the errors of the previous.
+
+if a base classifier is misclassified in one weak model,it's weight will get increased and the next base learner will classify it more correctly.
+
+since the output of one base learners will be input to another ,hence every model is dependent on it's previous model
+
+boosting is used when the aim is to reduce bias
+
+# how is boosting performed
+the whole of boosting is explained in just a few steps.please refer to the diagram 
+
+1)let d1 be the subset ,which is generated randomly with replacment from the original dataset 'D'
+
+2)now the subset is then used to train the model m1(which is called weak learner)
+
+3)this model is then used to make predictions on the original (complete) dataset .elements or instances which are misclassified /mispredicted by this model ,will be given more weights while choosing the next data-subset 
+
+4)let d2 is the datasubset,which is generated randomly with replacement from the dataset 'D'(which is now updated with weights)  In this step instances which have more weights (concluded from the previous step) will be more likely to be chosen
+
+5)now this subset is agian used to train the model 'm2'(which is called a weak learner)
+
+6)above steps are repeated for 'n' n.o of times to get n such model (m1,m2,m3....mn)
+
+7)results of these 'n' weak models are combined to make a final prediction.
+
+
+# Implementation
+* AdaBoost
+
+* Gradient boosting
+
+thses algorithms uses boosting in a different manner
+
+# similarities between bagging and boosting
+1.both them are ensemble methods to get N learners to from one learner
+
+2.both of them generate several sub-datasets for training by random sampling
+
+3.both of them make the final decision by averaging N learners (or by majority voting)
+
+4.both of them are good st providing higher stability.
+
+# bagging vs boosting
+
+1.the main goal of bagging is to decrease variance ,not bias.The main goal of boosting is to decrease bias,not variance
+
+2.IN bagging multiple training data-subsets are drawn randomly with replacment from the original dataset.In boosting the new subdataset are drawn randomly with replacment from the weighted (updated) dataset
+
+3.in bagging every model is constructed independently .in boosting ,new models are dependent on the performance of previous model
+
+4.in bagging every model recevies an equal weight .In boosting ,models are weighted by thier performance
+
+5.in bagging ,final prediction is just the normal average .in boosting the final prediction is weighted average.
+
+6.bagging is usually applied where the classifier is unstable and has a high variance.boosting is usually applied where the classifier is stable and has high bias.
+
+7.bagging is used for connecting predictions of the same type.boosting is used for connecting predictions that are of different types
+
+8.bagging is an ensemble method of type parllel.boosting is an ensemble method of type sequential
+
+# conclusion
+the algorithm selection depends on the circumstances of the givenproblem .u need to analysze the errors first and then look foreard to choosing a better option for ure specific problem.
+
+if ure problem is **underfitting the boosting** can give better results .in contrast ,if ure prb is **overfitting then bagging** wolud be better choice
